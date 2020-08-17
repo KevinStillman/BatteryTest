@@ -18,5 +18,5 @@ while True:             # Stopwatch loop, Note: One full loop takes slightly lon
     ## Output to file
 
     if SAVETOFILE:
-        with open("Time Before Shutdown.txt", "w") as file:
+        with open("Battery Life.txt", "w") as file:
             file.write(timePassed)
