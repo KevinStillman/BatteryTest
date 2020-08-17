@@ -1,27 +1,22 @@
 import time
+import datetime
+import os
+
+SAVETOFILE = True
 
 ## timer times initiation
-seconds = 0
-minutes = 0
-hours = 0
+start = int(time.time())
 
-while True:         # Stopwatch loop
-    time.sleep(1)
-    seconds += 1
-    if seconds == 60:   #resets for each minute
-        seconds = 0
-        minutes += 1
-    if minutes == 60:   #resets for each hour
-        minutes = 0
-        hours += 1
+while True:             # Stopwatch loop, Note: One full loop takes slightly longer than a second
+    time.sleep(15)      # The output time will be updated every 15 seconds (Less CPU and disk usage)
+    now = int(time.time())
+    timePassed = str(datetime.timedelta(seconds=now-start))
+    
+    os.system('cls')    #Change this to 'clear' if on Linux, Disable this if being run in the Shell
+    print(timePassed)
 
+    ## Output to file
 
-    allottedTime = f"H: {hours} M: {minutes} S:{seconds}"
-    print(allottedTime)
-
-    ## Below is outputting to a file for battery test, can remove or comment out post-test
-
-    batteryTestOutputFile = open("batterytest.txt", "w")
-    batteryTestOutputFile.write(allottedTime)
-
-
+    if SAVETOFILE:
+        with open("Time Before Shutdown.txt", "w") as file:
+            file.write(timePassed)
