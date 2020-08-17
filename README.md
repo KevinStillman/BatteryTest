@@ -6,5 +6,5 @@ A super simple python script to test the duration of my laptop's battery
  - When you turn your computer back on, read `Battery Life.txt`
  - `2:10:15` = 2 Hours, 10 Minutes, 15 Seconds
 
-# Config
+# Setup
 To enable writing to a file, ensure `SAVETOFILE = True`
